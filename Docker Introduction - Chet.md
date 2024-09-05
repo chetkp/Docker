@@ -191,7 +191,7 @@ Basically, Docker provides everything on the top of OS and it is similar to the 
 
 In case of Hyper-v we need to switch to virtual machine which is resource intensive and can’t even provide the simultaneous apps running experience.
 
-In case of Docker we create <<Docker Image>> on the top of OS and it simply runs like a normal application. We are simply choosing <<Docker images>> as a snapshot or blueprint of the libraries and dependencies right from the already up operating system and need not to transit between different states, leaving the main operating system and rebooting as it requires in case of virtual machines to revert to the state of another OS.
+In case of Docker we create Docker Image on the top of OS and it simply runs like a normal application. We are simply choosing Docker images as a snapshot or blueprint of the libraries and dependencies right from the already up operating system and need not to transit between different states, leaving the main operating system and rebooting as it requires in case of virtual machines to revert to the state of another OS.
 
 In such a way, the Docker is quick, easy to setup and is always a ready to work Production Environment.
 
