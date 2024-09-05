@@ -112,17 +112,13 @@ In such a way:
 
 On a one single machine, two different versions of the applications can run side by side without harming other application or its resources that are needed. For e.g.,
 
-An image: ![Machine 1](https://github.com/chetkp/Docker/blob/main/Image1.jpg)
-https://github.com/chetkp/Docker/blob/main/Image1.jpg
-A [link](https://github.com/chetkp/Docker_Images/blob/main/image.jpg).
-An image: ![Alt](img.jpg)
-A sized image: ![Alt](img.jpg =60x50)
+![Alt](https://github.com/chetkp/Docker/blob/main/Image1.jpg)
 
 *In usual application development environment, there would be unnecessary clutter while installing and uninstalling the number of dependencies that are needed to develop another version of the application. It might also result in slowdown the process or sometimes important dependencies may accidently get uninstalled while uninstalling the software application and it may result in application to stop responding.*
 
 But with the help of Docker container, we can immediately drop the container that is not needed and setup another container to develop the application. See the below figure:
 
-An image: ![Alt](https://github.com/chetkp/Docker/blob/main/Image2.jpg)
+![Alt](https://github.com/chetkp/Docker/blob/main/Image2.jpg)
 
 **What is Virtual Machine then? And what’s the problem with using the virtual machines for different application versions**
 
@@ -135,7 +131,8 @@ The virtual machines are resource intensives and utilises the physical resources
 **Docker Development Environment (Docker Image and Docker File)**
 
 We add Docker file to the Docker which is a plain text file containing instructions that Docker uses to package this application into an image.
-An image: ![Alt](https://github.com/chetkp/Docker/blob/main/Image3.jpg)
+
+ ![Alt](https://github.com/chetkp/Docker/blob/main/Image3.jpg)
 
 The above image has everything that an applications needs to run.
 
@@ -151,12 +148,14 @@ Let’s take a look at what this image contains:
 The Docker Engine is an open source containerization technology for building and containerizing your applications. Docker Engine acts as a client-server application with: A server with a long-running daemon process dockerd. APIs which specify interfaces that programs can use to talk to and instruct the Docker daemon.
 
 The below diagram shows how the Docker Works:
-An image: ![Alt](https://github.com/chetkp/Docker/blob/main/Image4.jpg)
+
+ ![Alt](https://github.com/chetkp/Docker/blob/main/Image4.jpg)
 
 **Docker Images and Docker Hub (Registry)**
 
 Docker Hub is a Docker registry, which is a system for storing, versioning, and distributing Docker images:
-An image: ![Alt](https://github.com/chetkp/Docker/blob/main/Image5.jpg)
+
+ ![Alt](https://github.com/chetkp/Docker/blob/main/Image5.jpg)
 
 **Docker Hub**
 
@@ -175,15 +174,16 @@ The second major difference is that docker run can only start one container at a
 Docker Compose is a tool for defining and running multi-container applications. It is the key to unlocking a streamlined and _efficient development and deployment experience._
 
 # Analogy
-An image: ![Alt](https://github.com/chetkp/Docker/blob/main/Image6.jpg)
+
+ ![Alt](https://github.com/chetkp/Docker/blob/main/Image6.jpg)
 
 There are two chefs in Master Chef Australia Kitchen and both the Chef enters in their kitchen. Both have been provided the necessary items to cook pizza. They can’t see each other for what they have been provided with. They have no way to criticize each other. This is how Master Chef Australia has provided everything to two different chefs in their kitchens.
 
 The same way Docker bundles all the dependencies, Docker file (Instructions to cook) for each container (Kitchen with necessary items). Each container is isolated from the outside environment and the applications would know what operations are to be performed based upon what is provided inside the containers.
+
 ![Alt](https://github.com/chetkp/Docker/blob/main/Image7.jpg)
 
 **Docker Registry** would be like arrangement of different items in a **RACK** by the chefs for public. It would also mean that items are available for public to eat. They can have their versions of the food like removing the toppings, eating only a particular item from the chef or choose what they like as per their taste buds.
-<![endif]-->
 
 # Let’s talk Developer’s way
 
