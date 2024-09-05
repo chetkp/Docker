@@ -1,6 +1,6 @@
 ﻿# The Conventional method of Integrated Development Environment (IDE) Setup
 
-> Due to the time constraint I couldn’t written this paper earlier in Markdown but now it is complete. I assure you that I have very good knowledge of Html, Javascript, C, C++, Java, CSS, and Markdown. I understand the base of syntax required for different programming languages. Being BCA, MCA from the University of Pune I am able to grasp the technical concepts quite easily.
+> Due to the time constraint I couldn’t write this paper earlier in Markdown but now it is complete. I assure you that I have very good knowledge of Html, Javascript, C, C++, Java, CSS, and Markdown. I understand the base of syntax required for different programming languages. Being BCA, MCA from the University of Pune I am able to grasp the technical concepts quite easily.
 >
 
 Let’s recall the conventional method of setting up an Integrated Development Environment (IDE) for creating the applications. To setup the IDE means to iterate through number of documents and follow the processes to make the application ready for development. There may be number of dependencies and sequences that may be required to be followed to get the application environment ready for development.
