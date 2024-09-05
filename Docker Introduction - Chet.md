@@ -59,150 +59,140 @@ Docker speeds up the software development processes, supporting micro services a
 The key benefit of Docker is that it allows users to package an application with all of its dependencies into a standardized unit for software development. In other words, to develop an application the Docker will provide all the dependencies and prerequisites to develop an application inside the containers.
 
 You may have encountered the problems where the code runs perfectly on developer’s machine but it stops working on other machine.
+
+The probable causes are:
+
+1. The other machine may be missing one or more dependencies as part of deployment to run the code successfully.
+
+2. Software version mismatch, the target machine may be running different version of the software that an application needs, for e.g., the application being developed needs Node version 14 but the target machine has Node version 9.
+1. The environment variable set are different at the developer application and the target machine.
+
+This is where Docker plays an important role to ensure that the code will run successfully on any machine as it works on developer’s machine.
+
+With Docker we package our application with everything it needs to run the code. The Docker downloads and installs all the dependencies required inside an isolated environment named **Containers**. For example:
+
+DEVELOPER’S MACHINE (RUNNING DOCKER):
+
+Package 1 Requirement (It will run inside Container 1) :
+- Node 14
+- Mongo 4
+- App
+
+Package 2 Requirement (It will run inside Container 2) :
+- Node 9
+- Mongo 4
+- App
+
+QUALITY ASSURANCE MACHINE (RUNNING DOCKER):
+
+Package 1 Requirement (It will run inside Container 1) :
+
+- Node 14
+- Mongo 4
+- App
+
+Package 2 Requirement (It will run inside Container 2) :
+- Node 9
+- Mongo 4
+- App
+
+The output for running the code would be same at both the machines and wherever the application is running inside the Docker.
+
+**Benefits:**
+
+Just the Docker is needed and it eliminates the need to setup the machines with the number of dependencies to be installed separately, Node 14, Mongo 4, App or Node 14, Mongo 4, App respectively for setting up two or more different machines.
+
+The IDE needed to start developing the application just need the Docker. There is no point worrying about the version mismatch or missing dependencies needed to be deployed on test machines.
+
+**How Container Works**
+
+The containers allow running multiple applications versions inside isolated environment. No two containers can see each other’s processes that are running and there is no point of interference of the application with each other.
+
+In such a way:
+
+On a one single machine, two different versions of the applications can run side by side without harming other application or its resources that are needed. For e.g.,
+
+An image: ![Machine 1](https://github.com/chetkp/Docker/blob/main/Image1.jpg)
+https://github.com/chetkp/Docker/blob/main/Image1.jpg
 A [link](https://github.com/chetkp/Docker_Images/blob/main/image.jpg).
-
-An image: ![Alt](image.jpg)
-
+An image: ![Alt](img.jpg)
 A sized image: ![Alt](img.jpg =60x50)
 
-## New files
+*In usual application development environment, there would be unnecessary clutter while installing and uninstalling the number of dependencies that are needed to develop another version of the application. It might also result in slowdown the process or sometimes important dependencies may accidently get uninstalled while uninstalling the software application and it may result in application to stop responding.*
 
-Making files small  **New file** is to okay **New folder** I guess.
+But with the help of Docker container, we can immediately drop the container that is not needed and setup another container to develop the application. See the below figure:
 
-## Switch to another file
+An image: ![Alt](https://github.com/chetkp/Docker/blob/main/Image2.jpg)
 
-This is all plain text
+**What is Virtual Machine then? And what’s the problem with using the virtual machines for different application versions**
 
-## Rename a file
+The virtual machines need a complete setup of the Operating System and all the dependencies to be installed as required one by one for developing each version of the application.
 
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
+The development is not as fast as it is with the help of containers as one single machine can run multiple applications side by side.
 
-## Delete a file
+The virtual machines are resource intensives and utilises the physical resources of the single machine and it slows down the process. Whereas the Docker runs on the top of the OS it is installed and it uses only the OS kernel of the host machine or in other words, CPU core.
 
-You can delete t he file **Remove** yes **Trash** it is true.
-## Export a file
+**Docker Development Environment (Docker Image and Docker File)**
 
-Export file **Export to disk** in the menu. Okay.
+We add Docker file to the Docker which is a plain text file containing instructions that Docker uses to package this application into an image.
+An image: ![Alt](https://github.com/chetkp/Docker/blob/main/Image3.jpg)
 
+The above image has everything that an applications needs to run.
 
-# Synchronization
+Let’s take a look at what this image contains:
+- A cut-down OS
+- A runtime environment (e.g., Node)
+- Application files
+- Third-party libraries
+- Environment variables
 
-- This represents bullet
-> Feeder
-> i gues
-> ok i got it
-** Represents bold **
+**Setting up and running the Docker Container**
 
-There are two types of synchronization and they can complement each other:
+The Docker Engine is an open source containerization technology for building and containerizing your applications. Docker Engine acts as a client-server application with: A server with a long-running daemon process dockerd. APIs which specify interfaces that programs can use to talk to and instruct the Docker daemon.
 
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
+The below diagram shows how the Docker Works:
+An image: ![Alt](https://github.com/chetkp/Docker/blob/main/Image4.jpg)
 
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
+**Docker Images and Docker Hub (Registry)**
 
-## Open a file
+Docker Hub is a Docker registry, which is a system for storing, versioning, and distributing Docker images:
+An image: ![Alt](https://github.com/chetkp/Docker/blob/main/Image5.jpg)
 
-You can open a file from **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Open from**. Once opened in the workspace, any modification in the file will be automatically synced.
+**Docker Hub**
 
-## Save a file
+Docker's official cloud-based registry is used by default when installing Docker. It's a public registry that anyone can use, and it's built for developers and open source contributors. Developers can host public repos for free, or private repos for teams and enterprises.
 
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
+**Docker Registry**
 
-## Synchronize a file
+A general term for a system that stores and distributes Docker images. There are many other Docker registries available, including Amazon Elastic Container Registry (ECR), Azure Container Registry (ACR), and Google Container Registry (GCR). You can also run your own private registry on your local system or inside your organization.
 
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.
+**Difference between working of Docker-run and Docker Compose and its use cases**
 
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
+The key difference between docker-run versus docker-compose is that docker run is entirely command line based, while docker-compose reads configuration data from a YAML file.
 
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
+The second major difference is that docker run can only start one container at a time, while docker-compose will configure and run multiple.
 
-## Manage file synchronization
+Docker Compose is a tool for defining and running multi-container applications. It is the key to unlocking a streamlined and _efficient development and deployment experience._
 
-Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking **File synchronization** in the **Synchronize** sub-menu. This allows you to list and remove synchronized locations that are linked to your file.
+# Analogy
+An image: ![Alt](https://github.com/chetkp/Docker/blob/main/Image6.jpg)
 
-To add hyperlink you need to do it like the [Text] (https://chetkamalparkash.blogspot.com) just like this.
+There are two chefs in Master Chef Australia Kitchen and both the Chef enters in their kitchen. Both have been provided the necessary items to cook pizza. They can’t see each other for what they have been provided with. They have no way to criticize each other. This is how Master Chef Australia has provided everything to two different chefs in their kitchens.
 
-# Publication
+The same way Docker bundles all the dependencies, Docker file (Instructions to cook) for each container (Kitchen with necessary items). Each container is isolated from the outside environment and the applications would know what operations are to be performed based upon what is provided inside the containers.
+![Alt](https://github.com/chetkp/Docker/blob/main/Image7.jpg)
 
-Publishing in StackEdit makes it simple for you to publish online your files. Once you're happy with a file, you can publish it to different hosting platforms like **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **WordPress** and **Zendesk**. With [Handlebars templates](http://handlebarsjs.com/), you have full control over what you export.
+**Docker Registry** would be like arrangement of different items in a **RACK** by the chefs for public. It would also mean that items are available for public to eat. They can have their versions of the food like removing the toppings, eating only a particular item from the chef or choose what they like as per their taste buds.
+<![endif]-->
 
-> Before starting to publish, you must link an account in the **Publish** sub-menu.
+# Let’s talk Developer’s way
 
-## Publish a File
+Basically, Docker provides everything on the top of OS and it is similar to the snapshots (Images in Docker) as in Hyper-V. We simply select the snapshots in Hyper-v and revert to the state of the system as required.
 
-You can publish your file by opening the **Publish** sub-menu and by clicking **Publish to**. For some locations, you can choose between the following formats:
+In case of Hyper-v we need to switch to virtual machine which is resource intensive and can’t even provide the simultaneous apps running experience.
 
-- Markdown: publish the Markdown text on a website that can interpret it (**GitHub** for instance),
-- HTML: publish the file converted to HTML via a Handlebars template (on a blog for example).
+In case of Docker we create <<Docker Image>> on the top of OS and it simply runs like a normal application. We are simply choosing <<Docker images>> as a snapshot or blueprint of the libraries and dependencies right from the already up operating system and need not to transit between different states, leaving the main operating system and rebooting as it requires in case of virtual machines to revert to the state of another OS.
 
-## Update a publication
+In such a way, the Docker is quick, easy to setup and is always a ready to work Production Environment.
 
-After publishing, StackEdit keeps your file linked to that publication which makes it easy for you to re-publish it. Once you have modified your file and you want to update your publication, click on the **Publish now** button in the navigation bar.
-
-> **Note:** The **Publish now** button is disabled if your file has not been published yet.
-
-## Manage file publication
-
-Since one file can be published to multiple locations, you can list and manage publish locations by clicking **File publication** in the **Publish** sub-menu. This allows you to list and remove publication locations that are linked to your file.
-
-
-# Markdown extensions
-
-StackEdit extends the standard Markdown syntax by adding extra **Markdown extensions**, providing you with some nice features.
-
-> **ProTip:** You can disable any **Markdown extension** in the **File properties** dialog.
-
-
-## SmartyPants
-
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
-
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
-
-
-## KaTeX
-
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
-
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
-
-> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
-
-
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-```
-->> Hello 
-```
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-
-
+Thanks - *Chet* 
