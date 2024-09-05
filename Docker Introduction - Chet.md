@@ -61,7 +61,7 @@ The key benefit of Docker is that it allows users to package an application with
 You may have encountered the problems where the code runs perfectly on developer’s machine but it stops working on other machine.
 A [link](https://github.com/chetkp/Docker_Images/blob/main/image.jpg).
 
-An image: ![Alt](img.jpg)
+An image: ![Alt](image.jpg)
 
 A sized image: ![Alt](img.jpg =60x50)
 
